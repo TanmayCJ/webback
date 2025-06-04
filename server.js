@@ -1,34 +1,28 @@
+const express_server = require('express');
+const app = express_server();
+const PORT = process.env.PORT || 5000;
 
-const name = "Anakin Skywalker"
-const age = 45;
-const occupation = "Jedi Knight";
-const isAlive = false; 
-const planet = "Tatooine";
-const species = "Human";
-const properties = {" lightsaberColor": "blue", "forceSensitive": true, "master": "Obi-Wan Kenobi"};
+app.listen(PORT, () => {
+  console.log(`Server is running on port ${PORT}`);
+  console.log(`Visit http://localhost:${PORT} to access the server`);
+});
+ 
+app.get('/', (req, res) => {
+  const student = {
+    name: 'Anakin Skywalker',
+    age: 22,   
+    course: 'Jedi Training',
+    skills: ['Lightsaber Combat', 'Force Powers', 'Piloting'],
+    trainer: 'Jedi Master',
+    mentor: 'Obi-Wan Kenobi',
+    lore: 'Anakin Skywalker, once a promising Jedi Knight, fell to the dark side and became Darth Vader. His journey is a tragic tale of heroism, betrayal, and redemption. Anakin was known for his exceptional piloting skills and strong connection to the Force. Despite his fall, he remains a pivotal figure in the Star Wars saga, symbolizing the struggle between good and evil.',
+    achievements: 'eradicated the Sith, restored balance to the Force, and redeemed himself through acts of bravery and sacrifice.',
+    story: 'Anakin Skywalker was discovered as a slave on the desert planet of Tatooine. He was trained as a Jedi by Obi-Wan Kenobi and became a hero of the Clone Wars. However, his fear of losing loved ones led him to make tragic choices, ultimately becoming Darth Vader. His story is one of tragedy, redemption, and the enduring power of hope.',
+    image: 'https://example.com/anakin-skywalker.jpg',
+  }
 
-
-const character = {
-  name: name ,
-  age: age,
-  occupation: occupation,
-  isAlive: isAlive,
-  planet: planet,
-  species: species,
-  properties: properties
-}; 
-
-const description = {
-backstory: "Anakin Skywalker was a Jedi Knight who was prophesied to bring balance to the Force. However, he fell to the dark side and became Darth Vader.",
-abilities: ["Force Push", "Lightsaber Combat", "Jedi Mind Tricks"],
-allies: ["Obi-Wan Kenobi", "Padmé Amidala", "Ahsoka Tano"],
-enemies: ["Darth Sidious", "Count Dooku", "Boba Fett"],
-lore: "Anakain Sky walker was born on the planet Tatooine and was saved from poverty by his master Qui-Gon Jinn who was the master of Obi-Wan Kenobi. Anakin was trained as a Jedi and became one of the most powerful Jedi in the galaxy. However, faced with the loss of his mother and the fear of losing his wife Padmé Amidala, he was seduced by the dark side and became Darth Vader, serving under Emperor Palpatine. His story is one of tragedy, redemption, and the enduring struggle between good and evil.",
-feats: ["Defeated Count Dooku", "Saved the galaxy from the Sith", "Redeemed by his son Luke Skywalker"],
-}
-
-
-
-
-console.log(character);
-console.log(description);
+     
+  res.json(student);
+});
+    
+ 
