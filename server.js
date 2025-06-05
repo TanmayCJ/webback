@@ -21,8 +21,19 @@ app.get('/', (req, res) => {
     image: 'https://example.com/anakin-skywalker.jpg',
   }
 
-     
+  const qualifications = [
+    'Jedi Initiate',
+    'Padawan Learner',
+    'Jedi Knight',
+    'Jedi Master',
+  ];
   res.json(student);
+  res.json(qualifications);
+  res.json({
+    message: 'Welcome to the Jedi Academy!',
+    student: student,
+    qualifications: qualifications
+  });
 });
     
  
